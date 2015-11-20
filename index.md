@@ -27,7 +27,7 @@ Sequencing report interpretation of a multiples samples sequencing experiments.
 ## Error in file(file, "rt"): impossible d'ouvrir la connexion
 ```
 
-<!--html_preserve--><div id="out9d90ee402622ec16" class="shiny-html-output"></div><!--/html_preserve--><!--html_preserve--><div id="out3d5c608cd914ad61" class="shiny-text-output"></div><!--/html_preserve-->
+<!--html_preserve--><div id="out7bbb61c71aa159fe" class="shiny-html-output"></div><!--/html_preserve--><!--html_preserve--><div id="out7572b2ed373e191f" class="shiny-text-output"></div><!--/html_preserve-->
 
 
 
@@ -42,7 +42,7 @@ Sequencing report interpretation of a multiples samples sequencing experiments.
 </div>
 </div>
 </div>
-</div><!--/html_preserve--><!--html_preserve--><div id="outc7162e886ae12039" class="shiny-plot-output" style="width: 100% ; height: 400px"></div><!--/html_preserve-->
+</div><!--/html_preserve--><!--html_preserve--><div id="out64f9338221ba037d" class="shiny-plot-output" style="width: 100% ; height: 400px"></div><!--/html_preserve-->
 
 ##Boxplot visualisation of number of sequences
 <!--html_preserve--><div class="shiny-input-panel">
@@ -58,7 +58,7 @@ Sequencing report interpretation of a multiples samples sequencing experiments.
 </div>
 </div>
 </div>
-</div><!--/html_preserve--><!--html_preserve--><div id="out0735587c7babc8a9" class="shiny-plot-output" style="width: 100% ; height: 400px"></div><!--/html_preserve-->
+</div><!--/html_preserve--><!--html_preserve--><div id="outca9fce599bd9c176" class="shiny-plot-output" style="width: 100% ; height: 400px"></div><!--/html_preserve-->
 
 
 
@@ -79,7 +79,7 @@ Sequencing report interpretation of a multiples samples sequencing experiments.
 </div>
 </div>
 </div>
-</div><!--/html_preserve--><!--html_preserve--><pre id="out9f0a13ba9a0c8a95" class="shiny-text-output"></pre><!--/html_preserve-->
+</div><!--/html_preserve--><!--html_preserve--><pre id="out8fca540e8c7ac623" class="shiny-text-output"></pre><!--/html_preserve-->
 Conclusions :
 
 - Homogeneous Mean read size
