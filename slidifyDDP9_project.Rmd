@@ -11,7 +11,7 @@ output: ioslides_presentation
 Sequencing report interpretation of a multiples samples sequencing experiments.
 
 
-```{r, echo=FALSE}
+```{r slide1, echo=FALSE}
 
 var_filter <- read.table(file="filter_step_RAW.csv",sep="\t",header=T)
 
@@ -26,7 +26,7 @@ renderText({ paste("Number of samples : ",length(var_filter[,1]),sep="" )  })
 
 ## Graphical Distribution of mean read size
 
-```{r, echo=FALSE}
+```{r slide2, echo=FALSE}
 inputPanel(
   
   sliderInput("bw_adjust", label = "Bandwidth adjustment:",
@@ -43,7 +43,7 @@ renderPlot({
 ```
 
 ##Boxplot visualisation of number of sequences
-```{r,echo=FALSE}
+```{r slide3,echo=FALSE}
 inputPanel(
 selectInput("n_breaks1", label = "Visualize by",
                   choices = c("STRAIN", "STATUS"), selected = "STRAIN")
@@ -61,7 +61,7 @@ renderPlot({
 
 ## R summary of data
 
-```{r, echo=FALSE}
+```{r slide4, echo=FALSE}
 inputPanel(
   selectInput("n_breaks", label = "Column selection:",
               choices = c("NUMBER_SEQ","MEAN_SIZE","STATUS","STRAIN"), selected = "NUMBER_SEQ")
