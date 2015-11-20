@@ -1,0 +1,97 @@
+---
+title: "DDP9 - Demo project Sequencing report"
+author: "Gaël Even"
+runtime: shiny
+output: ioslides_presentation
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+
+## Description of samples table
+
+Sequencing report interpretation of a multiples samples sequencing experiments.
+
+
+```{r load, echo=FALSE,cache=FALSE}
+
+var_filter <- read.table(file="filter_step_RAW.csv",sep="\t",header=T)
+
+renderTable({
+  head(var_filter)
+})
+
+renderText({ paste("Number of samples : ",length(var_filter[,1]),sep="" )  })
+```
+
+
+
+## Graphical Distribution of mean read size
+
+```{r slide1, echo=FALSE,cache=FALSE}
+inputPanel(
+  
+  sliderInput("bw_adjust", label = "Bandwidth adjustment:",
+              min = 0.2, max = 2, value = 1, step = 0.2)
+)
+
+renderPlot({
+  hist(var_filter$MEAN_SIZE, probability = TRUE,
+       xlab = "Mean read size", main = "Mean read size distribution")
+  
+  dens <- density(var_filter$MEAN_SIZE, adjust = input$bw_adjust)
+  lines(dens, col = "blue")
+})
+```
+
+##Boxplot visualisation of number of sequences
+```{r slide3,echo=FALSE,cache=FALSE}
+inputPanel(
+selectInput("n_breaks1", label = "Visualize by",
+                  choices = c("STRAIN", "STATUS"), selected = "STRAIN")
+)
+
+ 
+renderPlot({
+  var_tmp <- data.frame( V1 = var_filter[,colnames(var_filter) == input$n_breaks1], V2 = var_filter$NUMBER_SEQ)
+ 
+  boxplot(V2~as.factor(V1), data = var_tmp, main = paste("BOXPLOT NUMBER OF SEQ BY ",input$n_breaks1,sep=""))
+})
+```
+
+
+
+## R summary of data
+
+```{r slide2, echo=FALSE,cache=FALSE}
+inputPanel(
+  selectInput("n_breaks", label = "Column selection:",
+              choices = c("NUMBER_SEQ","MEAN_SIZE","STATUS","STRAIN"), selected = "NUMBER_SEQ")
+  
+)
+
+renderPrint({
+  if( input$n_breaks == "STRAIN" || input$n_breaks == "STATUS"){
+    table(var_filter[,colnames(var_filter) == input$n_breaks])
+  }else{
+    summary(var_filter[,colnames(var_filter) == input$n_breaks])
+  }
+})
+```
+Conclusions :
+
+- Homogeneous Mean read size
+- Homegeneous number of sequences for humans, cows and horses
+- Lower number of sequence for pigs samples
+- <strong>we can play with the data!</strong>
+
+To learn more, see [Interactive Documents](https://gdscan-gaeleven.shinyapps.io/rawcode).
+
+
+
+
+
